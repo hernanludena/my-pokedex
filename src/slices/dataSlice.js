@@ -4,8 +4,7 @@ import { setLoading } from './uiSlice';
 
 const initialState = {
   pokemons: [],
-  searchQuery: '' // Añade esta línea para manejar el estado de búsqueda
-  //pokemonsFiltered: [], //para el buscador
+  searchQuery: '', // Añade esta línea para manejar el estado de búsqueda
 };
 
 //Funcion Generadora Asincrona de Thunk para consultar el API de pokemons
@@ -52,25 +51,7 @@ export const dataSlice = createSlice({
         console.log("hlu: " + isHlu)
         //puedes crear propiedades en el estado de Redux mediante asignaciones directas gracias a Immer en Redux Toolkit
       }
-
-      //buscador: Ajuste para que funcione el favorite
-      // const currentFilteredPokemonIndex = state.pokemonsFiltered.findIndex(pokemon => {
-      //   return pokemon.id === action.payload.pokemonId
-      // })
-
-      // if (currentFilteredPokemonIndex >= 0) {
-      //   const isFavorite = state.pokemonsFiltered[currentFilteredPokemonIndex].favorite
-
-      //   state.pokemonsFiltered[currentFilteredPokemonIndex].favorite = !isFavorite  //crea un atributo llamado favorite en el estado
-
-      // }
-    }, //Busca el pokemon en el estado global actual (arreglo de pokemons)
-    // setFilter: (state, action) => {  //Buscador, se usa el .filter para filtrar en base a una condicion
-    //   const pokemonsFiltered = state
-    //     .pokemons
-    //     .filter(pokemon => pokemon.name.includes(action.payload)) // El método includes se utiliza para verificar si el nombre de cada Pokémon contiene la cadena de búsqueda proporcionada.
-    //   state.pokemonsFiltered = pokemonsFiltered; //actualizo mi estado con los pokemos filtrados
-    // },
+    }, 
         // Reducer para actualizar el estado de búsqueda
         setSearchQuery: (state, action) => {
           state.searchQuery = action.payload;
@@ -78,7 +59,5 @@ export const dataSlice = createSlice({
   },
 });
 
-export const { setFavorite, setPokemons, setSearchQuery  } = dataSlice.actions; //setFilter
-console.log('🚀 ~ file: dataSlice.js ~ line 29 ~ dataSlice', dataSlice);
-
+export const { setFavorite, setPokemons, setSearchQuery  } = dataSlice.actions; 
 export default dataSlice.reducer;

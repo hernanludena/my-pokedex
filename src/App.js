@@ -10,7 +10,7 @@ import './App.css';
 function App() {
 
   //accedo al estado global: arreglo de pokemones
-  const pokemons = useSelector((state) => state.data.pokemons, shallowEqual); //state.data.pokemons, shallowEqual);
+  const pokemons = useSelector((state) => state.data.pokemons, shallowEqual);
   //shallowEqual, se utiliza para optimizar el rendimiento comparando superficialmente los valores
 
   const searchQuery = useSelector(state => state.data.searchQuery); //traigo datos ingresados en el buscador
